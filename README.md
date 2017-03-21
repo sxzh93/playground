@@ -1,1 +1,1 @@
-This is a repository for collection.
+This is a repository for code collection.
