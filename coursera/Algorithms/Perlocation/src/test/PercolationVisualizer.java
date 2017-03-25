@@ -18,6 +18,7 @@ package test;
  *
  ******************************************************************************/
 
+import java.io.File;
 import java.awt.Font;
 
 import edu.princeton.cs.algs4.In;
@@ -66,7 +67,8 @@ public class PercolationVisualizer {
     }
 
     public static void main(String[] args) {
-        In in = new In(args[0]);      // input file
+        //In in = new In(args[0]);      // input file
+    	In in = new In("src/test/input10.txt");
         int n = in.readInt();         // n-by-n percolation system
 
         // turn on animation mode
