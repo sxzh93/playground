@@ -28,6 +28,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 	}
 	
 	private void resize(int capacity){
+		// resize an array to capacity
 		assert capacity >= this.size;
 		Item[] temp = (Item[]) new Object[capacity];
 		for(int i=0;i<this.size;++i){
