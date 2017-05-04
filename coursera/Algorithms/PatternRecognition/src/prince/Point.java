@@ -12,6 +12,7 @@ package prince;
 
 import java.security.PrivilegedActionException;
 import java.util.Comparator;
+import java.lang.*;
 
 import javax.swing.plaf.basic.BasicTreeUI.TreeHomeAction;
 
@@ -108,11 +109,14 @@ public class Point implements Comparable<Point> {
     }
 
     private class BySlope implements Comparator<Point>{
-    	public int compare(Point a, Point b){
+    	public int compare(Point a, Point b) throws NullPointerException{
+    		if(a == null || b == null){
+    			throw new NullPointerException();
+    		}
     		double slopea = slopeTo(a);
     		double slopeb = slopeTo(b);
     		if(slopea == slopeb){
-    			return 0;
+    			return a.compareTo(b);
     		}else{
     			return slopea < slopeb ? -1 : 1;
     		}
