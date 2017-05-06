@@ -10,11 +10,7 @@
 
 package prince;
 
-import java.security.PrivilegedActionException;
 import java.util.Comparator;
-import java.lang.*;
-
-import javax.swing.plaf.basic.BasicTreeUI.TreeHomeAction;
 
 import edu.princeton.cs.algs4.StdDraw;
 
@@ -101,12 +97,6 @@ public class Point implements Comparable<Point> {
         	return this.y < that.y ? -1 : 1;
         }
     }
-    
-    private static class ByPoint implements Comparator<Point>{
-    	public int compare(Point a, Point b){
-    		return a.compareTo(b);
-    	}
-    }
 
     private class BySlope implements Comparator<Point>{
     	public int compare(Point a, Point b) throws NullPointerException{
@@ -116,7 +106,7 @@ public class Point implements Comparable<Point> {
     		double slopea = slopeTo(a);
     		double slopeb = slopeTo(b);
     		if(slopea == slopeb){
-    			return a.compareTo(b);
+    			return 0;
     		}else{
     			return slopea < slopeb ? -1 : 1;
     		}
@@ -131,10 +121,6 @@ public class Point implements Comparable<Point> {
      */
     public Comparator<Point> slopeOrder() {
     	return new BySlope();
-    }
-
-    public static Comparator<Point> pointOrder() {
-    	return new ByPoint();
     }
 
     /**
