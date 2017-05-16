@@ -35,12 +35,13 @@ public class Solver {
 	private boolean solvable;
 	private Board initialBoard;
 	private Board twinBoard;
-	private MinPQ<searchNode> AStarPQ;
-	private MinPQ<searchNode> AStarPQTwin;
 	private int movesCnt;
 	private ArrayList<Board> soList;
 
 	private void AStarSearch(){
+		MinPQ<searchNode> AStarPQ = new MinPQ<searchNode>(new SearchNodeComparator());
+		MinPQ<searchNode> AStarPQTwin = new MinPQ<searchNode>(new SearchNodeComparator());
+		
 		AStarPQ.insert(new searchNode(this.initialBoard, 0, null));
 		AStarPQTwin.insert(new searchNode(this.twinBoard, 0, null));
 		searchNode ans = null;
@@ -91,10 +92,7 @@ public class Solver {
 		this.twinBoard = this.initialBoard.twin();
 		this.movesCnt = 0;
 		this.soList = new ArrayList<Board>();
-
-		AStarPQ = new MinPQ<searchNode>(new SearchNodeComparator());
-		AStarPQTwin = new MinPQ<searchNode>(new SearchNodeComparator());
-
+		
 		this.AStarSearch();
 	}
 
