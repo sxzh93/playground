@@ -25,8 +25,9 @@ public class RangeSearchVisualizer {
 
     public static void main(String[] args) {
 
-        String filename = args[0];
-        In in = new In(filename);
+        //String filename = args[0];
+        String filename = "src/kdtree/circle100.txt";
+    	In in = new In(filename);
 
         StdDraw.enableDoubleBuffering();
 
